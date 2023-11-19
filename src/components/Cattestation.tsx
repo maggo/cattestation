@@ -515,7 +515,9 @@ export function Cattestation() {
   const supportsNFC = "NDEFReader" in window;
 
   const { write, data: result, error: txError } = useContractWrite(config);
-  const { isLoading } = useWaitForTransaction({ hash: result?.hash });
+  const { isLoading, isSuccess } = useWaitForTransaction({
+    hash: result?.hash,
+  });
 
   async function onClick() {
     const domain = {
@@ -567,6 +569,27 @@ export function Cattestation() {
         <br />
         Please try on a recent mobile device!
       </p>
+    );
+  }
+
+  if (isSuccess) {
+    return (
+      <div className="space-y-2">
+        <p>Meowza! Your cattestation has been minted!</p>
+        <Button asChild>
+          <a
+            target="_blank"
+            href={`https://arbitrum.easscan.org/address/${address}`}
+          >
+            Check Attestation on EASscan
+          </a>
+        </Button>
+        <Button asChild>
+          <a target="_blank" href={`https://opensea.io/${address}`}>
+            Check NFT on Opensea
+          </a>
+        </Button>
+      </div>
     );
   }
 
