@@ -576,7 +576,7 @@ export function Cattestation() {
     return (
       <div className="space-y-2">
         <p>Meowza! Your cattestation has been minted!</p>
-        <Button asChild>
+        <Button className="w-full" asChild>
           <a
             target="_blank"
             href={`https://arbitrum.easscan.org/address/${address}`}
@@ -584,7 +584,7 @@ export function Cattestation() {
             Check Attestation on EASscan
           </a>
         </Button>
-        <Button asChild>
+        <Button className="w-full" asChild>
           <a target="_blank" href={`https://opensea.io/${address}`}>
             Check NFT on Opensea
           </a>
