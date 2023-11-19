@@ -1,6 +1,6 @@
 import { execHaloCmdWeb } from "@arx-research/libhalo/api/web.js";
 import { useState } from "react";
-import { Address, zeroAddress } from "viem";
+import { Address } from "viem";
 import {
   useAccount,
   useChainId,
@@ -498,7 +498,7 @@ export function Cattestation() {
   const [message, setMessage] = useState<string>("");
   const chainId = useChainId();
   const { config, error } = usePrepareContractWrite({
-    address: zeroAddress,
+    address: CONTRACT_ADDRESS,
     abi: CattestationABI,
     functionName: "pet",
     args: [
