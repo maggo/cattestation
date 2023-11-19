@@ -512,7 +512,7 @@ export function Cattestation() {
     ],
   });
 
-  const supportsNFC = "NDEFReader" in window;
+  // const supportsNFC = "NDEFReader" in window;
 
   const { write, data: result, error: txError } = useContractWrite(config);
   const { isLoading, isSuccess } = useWaitForTransaction({
@@ -562,15 +562,15 @@ export function Cattestation() {
     setData(data);
   }
 
-  if (!supportsNFC) {
-    return (
-      <p className="bg-red-100 text-black p-2 rounded-lg text-center">
-        This device does not support NFC.
-        <br />
-        Please try on a recent mobile device!
-      </p>
-    );
-  }
+  // if (!supportsNFC) {
+  //   return (
+  //     <p className="bg-red-100 text-black p-2 rounded-lg text-center">
+  //       This device does not support NFC.
+  //       <br />
+  //       Please try on a recent mobile device!
+  //     </p>
+  //   );
+  // }
 
   if (isSuccess) {
     return (
